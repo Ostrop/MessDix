@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\Ostrop\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Ostrop\\.nuget\\packages"
+    ]
+  }
+}
