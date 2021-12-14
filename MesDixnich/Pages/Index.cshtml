@@ -1,0 +1,15 @@
+﻿@page
+@model EmptyRazorPagesApp.Pages.IndexModel
+@{
+ViewData["Title"] = "Чат";
+}
+
+@if (Model.IsCorrect)
+{
+    <p>Name: <b>@Model.Name</b></p>
+    <p>Age: <b>@Model.Age</b></p>
+}
+else
+{
+    <p>Переданы некорректные данные</p>
+}
