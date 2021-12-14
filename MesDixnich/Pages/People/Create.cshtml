@@ -1,0 +1,13 @@
+﻿@page
+@model RazorPagesApp.Pages.People.CreateModel
+@{
+    ViewData["Title"] = "Добавление нового пользователя";
+}
+<h2>@ViewData["Title"]</h2>
+<div asp-validation-summary="All"></div>
+<form method="POST">
+    <div><label>Login:</label><br /><input asp-for="User.Login" /></div>
+    <div><label>Password:</label><br /><input asp-for="User.Password" /></div>
+    <div><label>Name:</label><br /><input asp-for="User.UserName" /></div>
+    <input type="submit" value="Отправить" />
+</form>

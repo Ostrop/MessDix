@@ -3,7 +3,7 @@ using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
 
-namespace SignalRApp
+namespace EmptyRazorPagesApp
 {
     public class ChatHub : Hub
     {

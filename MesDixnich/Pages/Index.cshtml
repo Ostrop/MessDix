@@ -1,15 +1,37 @@
 ﻿@page
-@model EmptyRazorPagesApp.Pages.IndexModel
-@{
-ViewData["Title"] = "Чат";
-}
+    @model RazorPagesApp.Pages.ExchangeModel
+    @{
+        ViewData["Title"] = "Ввод данных";
+    }
 
-@if (Model.IsCorrect)
-{
-    <p>Name: <b>@Model.Name</b></p>
-    <p>Age: <b>@Model.Age</b></p>
+    <title>Вход в учетную запись</title>
+
+    <h2>Вход в учетную запись</h2>
+    <h4 style="color:#ff0000">@Model.Message</h4>
+    <form method="post">
+        <p>Введите логин</p>
+        <input type="text" name="login" />
+        <p>Введите пароль</p>
+        <input type="text" name="password" />
+        <input type="submit" value="Подтвердить" />
+    </form>
+@*@page
+@model RazorPagesApp.Pages.People.IndexModel
+
+@{
+    ViewData["Title"] = "Список пользователей";
 }
-else
-{
-    <p>Переданы некорректные данные</p>
-}
+<h2>@ViewData["Title"]</h2>
+
+<p><a asp-page="Create">Добавить пользователя</a></p>
+<table class="table">
+    <thead>
+        <tr><th>Имя</th><th>Возраст</th></tr>
+    </thead>
+    <tbody>
+        @foreach (var person in Model.User)
+        {
+            <tr><td>@person.Login</td><td>@person.Password</td></tr>
+        }
+    </tbody>
+</table>*@

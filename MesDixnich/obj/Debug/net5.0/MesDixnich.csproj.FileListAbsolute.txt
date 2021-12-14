@@ -60,3 +60,7 @@ C:\RProject\MesDixnich\MesDixnich\obj\Debug\net5.0\MesDixnich.RazorCoreGenerate.
 C:\RProject\MesDixnich\MesDixnich\obj\Debug\net5.0\MesDixnich.RazorTargetAssemblyInfo.cs
 C:\RProject\MesDixnich\MesDixnich\obj\Debug\net5.0\MesDixnich.Views.pdb
 C:\RProject\MesDixnich\MesDixnich\obj\Debug\net5.0\Razor\Pages\Index.cshtml.g.cs
+C:\RProject\MesDixnich\MesDixnich\obj\Debug\net5.0\Razor\_ViewImports.cshtml.g.cs
+C:\RProject\MesDixnich\MesDixnich\obj\Debug\net5.0\Razor\Pages\Chat.cshtml.g.cs
+C:\RProject\MesDixnich\MesDixnich\obj\Debug\net5.0\Razor\Pages\People\Create.cshtml.g.cs
+C:\RProject\MesDixnich\MesDixnich\obj\Debug\net5.0\Razor\Pages\People\Index.cshtml.g.cs

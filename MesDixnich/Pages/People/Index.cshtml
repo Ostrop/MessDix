@@ -1,0 +1,20 @@
+﻿@page
+@model RazorPagesApp.Pages.People.IndexModel
+
+@{
+    ViewData["Title"] = "Список пользователей";
+}
+<h2>@ViewData["Title"]</h2>
+
+<p><a asp-page="Create">Добавить пользователя</a></p>
+<table class="table">
+    <thead>
+        <tr><th>Id</th><th>Login</th><th>Password</th><th>Name</th></tr>
+    </thead>
+    <tbody>
+        @foreach (var person in Model.User)
+        {
+            <tr><td>@person.Id</td><td>@person.Login</td><td>@person.Password</td><td>@person.UserName</td></tr>
+        }
+    </tbody>
+</table>

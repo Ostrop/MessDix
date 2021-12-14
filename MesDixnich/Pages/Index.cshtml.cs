@@ -1,21 +1,36 @@
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Collections.Generic;
+using System.Linq;
+using RazorPagesApp.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace EmptyRazorPagesApp.Pages
+namespace RazorPagesApp.Pages
 {
-    public class IndexModel : PageModel
+    public class ExchangeModel : PageModel
     {
-        public string Name { get; set; }
-        public int? Age { get; set; }
-        public bool IsCorrect { get; set; } = true;
-        public void OnGet(string name, int? age)
+        private readonly ApplicationContext _context;
+        //public List<User> User { get; set; }
+        public string Message { get; set; }
+        [BindProperty]
+        public User User1 { get; set; }
+        //public ExchangeModel(ApplicationContext db)
+        //{
+        //    _context = db;
+        //}
+        public void OnGet()
         {
-            if (age == null || age < 1 || age > 110 || string.IsNullOrEmpty(name))
+            //User = _context.User.AsNoTracking().ToList();
+        }
+        public IActionResult OnPost()
+        {
+            if (User1.Login == null || User1.Login == "")
             {
-                IsCorrect = false;
-                return;
+                Message = "Неправильные данные. Попробуйте еще раз.";
+                return Page();
             }
-            Age = age;
-            Name = name;
+            else
+                return RedirectToPage("Chat");
         }
     }
 }
