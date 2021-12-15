@@ -19,7 +19,7 @@ namespace RazorPagesApp.Pages.People
         }
         public async Task<IActionResult> OnPostAsync()
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && User.Login != "" && User.Password != "" && User.UserName != "")
             {
                 _context.User.Add(User);
                 await _context.SaveChangesAsync();

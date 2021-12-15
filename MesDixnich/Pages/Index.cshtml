@@ -15,23 +15,3 @@
         <input type="text" name="password" />
         <input type="submit" value="Подтвердить" />
     </form>
-@*@page
-@model RazorPagesApp.Pages.People.IndexModel
-
-@{
-    ViewData["Title"] = "Список пользователей";
-}
-<h2>@ViewData["Title"]</h2>
-
-<p><a asp-page="Create">Добавить пользователя</a></p>
-<table class="table">
-    <thead>
-        <tr><th>Имя</th><th>Возраст</th></tr>
-    </thead>
-    <tbody>
-        @foreach (var person in Model.User)
-        {
-            <tr><td>@person.Login</td><td>@person.Password</td></tr>
-        }
-    </tbody>
-</table>*@

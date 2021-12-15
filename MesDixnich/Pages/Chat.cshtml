@@ -50,7 +50,8 @@
         // отправка сообщения на сервер
         document.getElementById("sendBtn").addEventListener("click", function (e) {
             let message = document.getElementById("message").value;
-            hubConnection.invoke("Send", message, userName);
+            time =
+            hubConnection.invoke("Send", message, userName, time);
         });
 
         hubConnection.start();
