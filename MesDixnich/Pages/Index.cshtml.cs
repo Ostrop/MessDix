@@ -24,40 +24,15 @@ namespace RazorPagesApp.Pages
         {
             User = _context.User.AsNoTracking().ToList();
         }
-        public async Task<IActionResult> OnPostAsync()
+        public IActionResult OnPost()
         {
-            if (ModelState.IsValid && _context.User.Find() == User1.Login && User.Password != User1.Password && User.UserName != "")
+            if (_context.User.Any(e => e.Login == User1.Login && e.Password == User1.Password))
             {
-                _context.User.Add(User);
-                await _context.SaveChangesAsync();
-                return RedirectToPage("Index");
+                User userbuf = _context.User.FirstOrDefault(p => p.Login == User1.Login);
+                return Redirect("Chat?PersonID=" + userbuf.Id);
             }
+            Message = "Неправильные данные. Попробуйте еще раз.";
             return Page();
         }
-        //public IActionResult OnPost()
-        //{
-        //    User = _context.User.AsNoTracking().ToList();
-        //    try
-        //    {
-        //        foreach (var person in User)
-        //        {
-        //            if (person.Login == User1.Login || person.Password == User1.Password)
-        //                return RedirectToPage("Chat");
-        //        }
-        //            Message = "Неправильные данные. Попробуйте еще раз.";
-        //            return Page();
-        //    }
-        //    catch
-        //    {
-        //        Message = "Провал";
-        //        return Page();
-        //    }
-
-        //    //if (User.Login == null || User.Login == "")
-        //    //{
-        //    //}
-        //    //else
-        //    //    return RedirectToPage("Chat");
-        //}
     }
 }

@@ -9,7 +9,7 @@ namespace EmptyRazorPagesApp
     {
         public async Task Send(string message, string userName)
         {
-            await Clients.All.SendAsync("Receive", message, userName, Context.ConnectionId);
+            await Clients.All.SendAsync("Receive", message, userName);
         }
     }
 }

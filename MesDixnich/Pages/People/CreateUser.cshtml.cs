@@ -9,7 +9,7 @@ namespace RazorPagesApp.Pages.People
     {
         private readonly ApplicationContext _context;
         [BindProperty]
-        public User User{ get; set; }
+        public User User1{ get; set; }
         public CreateModel(ApplicationContext db)
         {
             _context = db;
@@ -19,9 +19,9 @@ namespace RazorPagesApp.Pages.People
         }
         public async Task<IActionResult> OnPostAsync()
         {
-            if (ModelState.IsValid && User.Login != "" && User.Password != "" && User.UserName != "")
+            if (ModelState.IsValid)
             {
-                _context.User.Add(User);
+                _context.User.Add(User1);
                 await _context.SaveChangesAsync();
                 return RedirectToPage("Index");
             }

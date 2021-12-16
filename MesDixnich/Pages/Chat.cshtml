@@ -10,16 +10,18 @@
 </head>
 <body>
 
+    <h2>@Model.Message1</h2>
 
-    <div id="header"></div>
-    <div id="header1"></div>
-    <br />
 
-    <div id="inputForm">
-        <input type="text" id="message" />
-        <input type="button" id="sendBtn" value="Отправить" />
-    </div>
+    <div asp-validation-summary="All"></div>
+    <form action="" onsubmit="yourJsFunction(); return false;"form method="post">
+        <div><input asp-for="SendMess.MessageText" id="message" /></div>
+        <div><input type="hidden" id="hid" value=@Model.User1.UserName></div>
+        <input type="submit" id="sendBtn" value="Отправить" />
+    </form>
+
     <div id="chatroom"></div>
+
     <script src="js/signalr/dist/browser/signalr.min.js"></script>
     <script>
         const hubConnection = new signalR.HubConnectionBuilder()
@@ -27,15 +29,17 @@
             .build();
 
         let userName = '';
+
         // получение сообщения от сервера
-        hubConnection.on('Receive', function (message, userName, connectionId) {
+        hubConnection.on('Receive', function (message, userName) {
             if (message == "" || message == " ") { }
             else {
                 // создаем элемент <b> для имени пользователя
                 let userNameElem = document.createElement("b");
-                userNameElem.appendChild(document.createTextNode(userName + ': '));
                 if (userName == '')
-                    userNameElem.appendChild(document.createTextNode(connectionId + ": "));
+                    userNameElem.appendChild(document.createTextNode(1111 + ": "));
+                else
+                    userNameElem.appendChild(document.createTextNode(userName + ": "));
 
                 // создает элемент <p> для сообщения пользователя
                 let elem = document.createElement("p");
@@ -50,8 +54,8 @@
         // отправка сообщения на сервер
         document.getElementById("sendBtn").addEventListener("click", function (e) {
             let message = document.getElementById("message").value;
-            time =
-            hubConnection.invoke("Send", message, userName, time);
+            userName = document.getElementById("hid").value;
+            hubConnection.invoke("Send", message, userName);
         });
 
         hubConnection.start();
