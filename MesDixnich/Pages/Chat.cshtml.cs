@@ -12,8 +12,6 @@ namespace MesDixnich.Pages
     public class ChatModel : PageModel
     {
         private readonly ApplicationContext _context;
-        public DateTime localDate = DateTime.Now;
-        public List<User> User { get; set; }
         public User User1 { get; set; }
         public string Message1 { get; set; }
         [BindProperty]
@@ -24,21 +22,8 @@ namespace MesDixnich.Pages
         }
         public void OnGet(int PersonID)
         {
-            User = _context.User.AsNoTracking().ToList();
             User1 = _context.User.FirstOrDefault(p => p.Id == PersonID);
             Message1 = "Добро пожаловать, " + User1.UserName;
-        }
-
-        public async Task<IActionResult> OnPostAsync(int PersonID)
-        {
-            if (ModelState.IsValid)
-            {
-                SendMess.SendTime = localDate;
-                SendMess.UserId = PersonID.ToString();
-                _context.Message.Add(SendMess);
-                await _context.SaveChangesAsync();
-            }
-            return null;
         }
     }
 }

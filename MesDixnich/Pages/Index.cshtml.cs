@@ -12,7 +12,6 @@ namespace RazorPagesApp.Pages
     public class ExchangeModel : PageModel
     {
         private readonly ApplicationContext _context;
-        public List<User> User { get; set; }
         public string Message { get; set; }
         [BindProperty]
         public User User1 { get; set; }
@@ -22,7 +21,6 @@ namespace RazorPagesApp.Pages
         }
         public void OnGet()
         {
-            User = _context.User.AsNoTracking().ToList();
         }
         public IActionResult OnPost()
         {
